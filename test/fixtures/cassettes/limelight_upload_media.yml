@@ -1,0 +1,48 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1337863294&signature=YkR%2BoskXW3HPpBBb9A9vft9wY5aA7QZ%2F1LnlGqklZFs%3D
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      content-type: 
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      content-length: 
+      - "246148"
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 201
+      message: Created
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 24 May 2012 12:36:43 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - no-cache
+      status: 
+      - 201 Created
+      x-runtime: 
+      - 1577ms
+      content-length: 
+      - "747"
+      via: 
+      - 1.0 vps-099.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": null, \"category\": null, \"description\": null, \"sched_end_date\": null, \"tags\": [], \"title\": \"test\", \"media_id\": \"5b9db4b56210492eb0a4bae1b5f9e3ec\", \"media_type\": \"Video\", \"original_filename\": \"sample-mp4\", \"sched_start_date\": null, \"restrictionrule_id\": null, \"create_date\": 1337863002, \"state\": \"New\", \"total_storage_in_bytes\": 0, \"thumbnails\": [{\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}, {\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}], \"ref_id\": null, \"update_date\": 1337863003, \"custom_property\": null, \"duration_in_milliseconds\": 0}"
+    http_version: "1.1"
+  recorded_at: Thu, 24 May 2012 12:36:43 GMT
+recorded_with: VCR 2.1.1
