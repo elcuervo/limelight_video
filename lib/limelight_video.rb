@@ -2,6 +2,7 @@ require 'faraday'
 require 'json'
 require 'base64'
 require 'openssl'
+require 'tempfile'
 require 'mime/types'
 
 class Limelight
@@ -21,19 +22,25 @@ class Limelight
   end
 
   def upload(filename_or_io, attributes = {})
-    filename = case filename_or_io
-               when String
-                 filename_or_io if File.exists?(filename_or_io)
-               when StringIO
-                 attributes.fetch(:filename)
-               else
-                 raise Errno::ENOENT
-               end
+    case filename_or_io
+      when String
+        file = File.open(filename_or_io)
+        filename = filename_or_io
+        mime = MIME::Types.of(filename_or_io)
+      when Tempfile, StringIO
+        file = filename_or_io
+        filename = attributes.fetch(:filename)
+        mime = attributes[:type] || MIME::Types.of(filename)
+      else
+        raise Errno::ENOENT
+      end
 
     url = generate_signature('post', @base_url)
-    mime = MIME::Types.type_for(filename)
-    file = Faraday::UploadIO.new(filename_or_io, mime, filename)
-    response = @client.post(url, title: attributes.fetch(:title, 'Unnamed'), media_file: file)
+    media_file = Faraday::UploadIO.new(file, mime, filename)
+    options = { title: attributes.fetch(:title, 'Unnamed'), media_file: media_file}
+    response = @client.post(url, options) do |req|
+      req.options[:open_timeout] = 60*60
+    end
     JSON.parse response.body
   end
 
