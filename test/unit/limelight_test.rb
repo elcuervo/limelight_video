@@ -11,7 +11,7 @@ describe Limelight do
   it 'should validate tokens for authorized actions' do
     limelight = Limelight.new(organization: 'something', access_key: 'another')
     assert_raises KeyError do
-      limelight.upload('test', sample_mp4_file)
+      limelight.upload(sample_mp4_file, title: 'test')
     end
   end
 end
