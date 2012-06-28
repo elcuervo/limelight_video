@@ -7,7 +7,7 @@ require 'mime/types'
 class Limelight
   def initialize(options = {})
     @organization = options.fetch(:organization, ENV['LIMELIGHT_ORGANIZATION'])
-    raise Limelight::MissingOrganization if !@organization
+    raise KeyError.new("organization") if !@organization
 
     @access_key = options.fetch(:access_key, ENV['LIMELIGHT_ACCESS_KEY'])
     @secret = options.fetch(:secret, ENV['LIMELIGHT_SECRET'])
@@ -21,7 +21,7 @@ class Limelight
   end
 
   def upload(title, filename)
-    raise Limelight::FileToUploadDoesNotExists if !File.exists?(filename)
+    raise Errno::ENOENT if !File.exists?(filename)
 
     url = generate_signature('post', @base_url)
     mime = MIME::Types.type_for(filename)
@@ -44,8 +44,8 @@ class Limelight
   end
 
   def authorized_action
-    raise Limelight::MissingSecret    if !@secret
-    raise Limelight::MissingAccessKey if !@access_key
+    raise KeyError.new("secret")     if !@secret
+    raise KeyError.new("access_key") if !@access_key
   end
 
   def payload(params, method = 'get', path = @base_url)
@@ -53,29 +53,5 @@ class Limelight
       method.downcase, URI.parse(@host).host, path,
       params.sort.map{ |arr| arr.join('=') }.join('&')
     ].join('|')
-  end
-end
-
-class Limelight::MissingOrganization < StandardError
-  def message
-    'The :organization key is missing'
-  end
-end
-
-class Limelight::MissingSecret < StandardError
-  def message
-    'The :secret key is missing'
-  end
-end
-
-class Limelight::MissingAccessKey < StandardError
-  def message
-    'The :access_key key is missing'
-  end
-end
-
-class Limelight::FileToUploadDoesNotExists < StandardError
-  def message
-    'The file cannot be found'
   end
 end
