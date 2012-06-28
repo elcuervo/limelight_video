@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name              = "limelight"
+  s.name              = "limelight_video"
   s.version           = "0.0.1"
   s.summary           = "Limelight video client"
   s.description       = "Interact with the Limelight CDN platform"
