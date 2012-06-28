@@ -1,5 +1,6 @@
 require 'test_helper'
 require 'test_fixtures'
+require 'stringio'
 
 describe Limelight do
   before do
@@ -19,7 +20,7 @@ describe Limelight do
 
   it 'should upload an io stream' do
     VCR.use_cassette("limelight upload io", match_requests_on: [:host, :path]) do
-      io = File.open(sample_mp4_file)
+      io = StringIO.new << File.read(sample_mp4_file)
       video = @limelight.upload(io, title: 'test', filename: sample_mp4_file)
       video["media_id"].size.must_equal 32
     end
