@@ -21,6 +21,11 @@ class Limelight
     end
   end
 
+  def media_info(media_id)
+    response = @client.get("#{@base_url}/#{media_id}/properties.json")
+    JSON.parse response.body
+  end
+
   def upload(filename_or_io, attributes = {})
     case filename_or_io
       when String
@@ -35,18 +40,55 @@ class Limelight
         raise Errno::ENOENT
       end
 
-    url = generate_signature('post', @base_url)
     media_file = Faraday::UploadIO.new(file, mime, filename)
-    options = { title: attributes.fetch(:title, 'Unnamed'), media_file: media_file}
-    response = @client.post(url, options) do |req|
+    options = {
+      title: attributes.fetch(:title, 'Unnamed'),
+      media_file: media_file
+    }
+    if attributes[:metadata]
+      custom_properties = attributes[:metadata]
+      properties_to_create = custom_properties.keys.map(&:to_s) - list_metadata
+      create_metadata(properties_to_create)
+    end
+
+    options[:custom_property] = attributes.fetch(:metadata, {})
+    response = @client.post(upload_path, options) do |req|
       req.options[:open_timeout] = 60*60
     end
+
     JSON.parse response.body
+  end
+
+  def upload_path
+    generate_encoded_path 'post', @base_url
+  end
+
+  def create_metadata(names)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/properties/custom/<property name>
+    Array(names).each do |name|
+      path = generate_encoded_path('put', "#{@base_url}/properties/custom/#{name}")
+      @client.put(path)
+    end
+  end
+
+  def list_metadata
+    # http://api.videoplatform.limelight.com/rest/organizations/<orgid>/media/properties/custom.{XML,JSON}
+    response = @client.get("#{@base_url}/properties/custom.json")
+    metadata = JSON.parse response.body
+    metadata["custom_property_types"].map { |meta| meta["type_name"] }
+  end
+
+  def remove_metadata(names)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/properties/custom/<property name>
+    Array(names).each do |name|
+      path = generate_encoded_path('delete', "#{@base_url}/properties/custom/#{name}")
+      @client.delete(path)
+    end
   end
 
   private
 
-  def generate_signature(method = 'get', path = @base_url)
+  def generate_encoded_path(method = 'get', path = @base_url)
     authorized_action
 
     params = { access_key: @access_key, expires: Time.now.to_i + 300 }

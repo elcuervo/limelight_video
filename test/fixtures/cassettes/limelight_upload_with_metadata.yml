@@ -1,0 +1,132 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/properties/custom.json
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Fri, 29 Jun 2012 03:10:45 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - max-age=300, max-stale=18000, public
+      status: 
+      - 200 OK
+      x-runtime: 
+      - 688ms
+      etag: 
+      - "\"85294995f52af4df68503ed27ec74b98\""
+      content-length: 
+      - "80"
+      via: 
+      - 1.0 vps-099.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"custom_property_types\": [{\"type_name\": \"test\"}, {\"type_name\": \"internal_id\"}]}"
+    http_version: "1.1"
+  recorded_at: Fri, 29 Jun 2012 03:10:45 GMT
+- request: 
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1340939745&signature=Ak7a9gBxw48axbGteF83objpZ%2FjuTK5PwRBVu9NWZ3E%3D
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      content-type: 
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      content-length: 
+      - "246264"
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 201
+      message: Created
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Fri, 29 Jun 2012 03:10:55 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - no-cache
+      status: 
+      - 201 Created
+      x-runtime: 
+      - 4061ms
+      content-length: 
+      - "754"
+      via: 
+      - 1.0 vps-098.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": null, \"category\": null, \"description\": null, \"sched_end_date\": null, \"tags\": [], \"title\": \"test metadata\", \"media_id\": \"19a0c0ff2fe44120a7c4e95eb7a6064d\", \"media_type\": \"Video\", \"original_filename\": \"sample-mp4\", \"sched_start_date\": null, \"restrictionrule_id\": null, \"create_date\": 1340939452, \"state\": \"New\", \"total_storage_in_bytes\": 0, \"thumbnails\": [{\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}, {\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}], \"ref_id\": null, \"update_date\": 1340939452, \"custom_property\": {}, \"duration_in_milliseconds\": 0}"
+    http_version: "1.1"
+  recorded_at: Fri, 29 Jun 2012 03:10:55 GMT
+- request: 
+    method: get
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/19a0c0ff2fe44120a7c4e95eb7a6064d/properties.json
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Fri, 29 Jun 2012 03:10:56 GMT
+      content-type: 
+      - application/json;charset=UTF-8
+      connection: 
+      - close
+      cache-control: 
+      - max-age=300,max-stale=18000, public
+      etag: 
+      - "\"e6eb64b879c345e598d7d4825c028797\""
+      content-length: 
+      - "751"
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\":null,\"category\":null,\"description\":null,\"sched_end_date\":null,\"tags\":[],\"title\":\"test metadata\",\"media_id\":\"19a0c0ff2fe44120a7c4e95eb7a6064d\",\"media_type\":\"Video\",\"original_filename\":\"sample-mp4\",\"sched_start_date\":null,\"restrictionrule_id\":null,\"create_date\":1340939452,\"state\":\"New\",\"total_storage_in_bytes\":0,\"thumbnails\":[{\"url\":\"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\",\"width\":\"\",\"height\":\"\"},{\"url\":\"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\",\"width\":\"\",\"height\":\"\"}],\"ref_id\":null,\"update_date\":1340939452,\"custom_property\":{\"internal_id\":\"10\"},\"duration_in_milliseconds\":0,\"closed_captions_url\":null}"
+    http_version: "1.1"
+  recorded_at: Fri, 29 Jun 2012 03:10:56 GMT
+recorded_with: VCR 2.1.1

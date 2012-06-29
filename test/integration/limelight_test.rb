@@ -12,17 +12,35 @@ describe Limelight do
   end
 
   it 'should upload a video' do
-    VCR.use_cassette("limelight upload media", match_requests_on: [:host, :path]) do
+    with_a_cassette("limelight upload media") do
       video = @limelight.upload(sample_mp4_file, title: 'test')
       video["media_id"].size.must_equal 32
     end
   end
 
   it 'should upload an io stream' do
-    VCR.use_cassette("limelight upload io", match_requests_on: [:host, :path]) do
+    with_a_cassette("limelight upload io") do
       io = StringIO.new << File.read(sample_mp4_file)
       video = @limelight.upload(io, title: 'test', filename: sample_mp4_file)
       video["media_id"].size.must_equal 32
+    end
+  end
+
+  it 'should create and list all the metadata' do
+    with_a_cassette('create and list metadata') do
+      @limelight.create_metadata("test")
+      assert @limelight.list_metadata.include?("test")
+      assert !@limelight.list_metadata.include?("none")
+    end
+  end
+
+  it 'should upload a video with metadata' do
+    with_a_cassette("limelight upload with metadata") do
+      video = @limelight.upload(sample_mp4_file, title: 'test metadata', metadata: { internal_id: 10 })
+      video["media_id"].size.must_equal 32
+
+      media_info = @limelight.media_info(video["media_id"])
+      assert media_info["custom_property"], "This media should have a custom property"
     end
   end
 end
