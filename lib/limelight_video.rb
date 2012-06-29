@@ -59,8 +59,12 @@ class Limelight
     JSON.parse response.body
   end
 
+  def upload_url
+    @host + upload_path
+  end
+
   def upload_path
-    generate_encoded_path 'post', @base_url
+    generate_encoded_path('post', @base_url)
   end
 
   def create_metadata(names)
