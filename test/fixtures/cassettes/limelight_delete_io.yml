@@ -1,0 +1,138 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1341946060&signature=DOr2kPH1ffyewbqVJ22iecS3IrA5zqkweCVZ0vn3wZs%3D
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      content-type:
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      content-length:
+      - '246148'
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      server:
+      - nginx/0.8.54
+      date:
+      - Tue, 10 Jul 2012 18:41:56 GMT
+      content-type:
+      - application/json; charset=utf-8
+      connection:
+      - close
+      cache-control:
+      - no-cache
+      status:
+      - 201 Created
+      x-runtime:
+      - 1601ms
+      content-length:
+      - '747'
+      via:
+      - 1.0 vps-018.iad.llnw.net
+    body:
+      encoding: US-ASCII
+      string: ! '{"publish_date": null, "category": null, "description": null, "sched_end_date":
+        null, "tags": [], "title": "test", "media_id": "a93f93574bb545708243209a2d74743b",
+        "media_type": "Video", "original_filename": "sample-mp4", "sched_start_date":
+        null, "restrictionrule_id": null, "create_date": 1341945715, "state": "New",
+        "total_storage_in_bytes": 0, "thumbnails": [{"url": "http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf",
+        "width": "", "height": ""}, {"url": "http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf",
+        "width": "", "height": ""}], "ref_id": null, "update_date": 1341945716, "custom_property":
+        null, "duration_in_milliseconds": 0}'
+    http_version: '1.1'
+  recorded_at: Tue, 10 Jul 2012 18:42:50 GMT
+- request:
+    method: delete
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/a93f93574bb545708243209a2d74743b?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1341946070&signature=7tSPqARoP3%2FNrX7psPPm3Zv2K9TN6YuQb3fxOSCgPM4%3D
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.8.54
+      date:
+      - Tue, 10 Jul 2012 18:41:58 GMT
+      content-type:
+      - application/json; charset=utf-8
+      connection:
+      - close
+      cache-control:
+      - private, max-age=0, must-revalidate
+      status:
+      - 200 OK
+      x-runtime:
+      - 699ms
+      etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      content-length:
+      - '2'
+      via:
+      - 1.0 vps-018.iad.llnw.net
+    body:
+      encoding: US-ASCII
+      string: ! '[]'
+    http_version: '1.1'
+  recorded_at: Tue, 10 Jul 2012 18:42:52 GMT
+- request:
+    method: get
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/a93f93574bb545708243209a2d74743b/properties.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      server:
+      - nginx/0.8.54
+      date:
+      - Tue, 10 Jul 2012 18:41:59 GMT
+      content-type:
+      - application/json;charset=UTF-8
+      connection:
+      - close
+      cache-control:
+      - max-age=300,max-stale=18000, public
+      etag:
+      - ! '"cc868183be3a4382a4ed55790e07ba16"'
+      content-length:
+      - '76'
+    body:
+      encoding: US-ASCII
+      string: ! '{"errors": ["Media either does not exist or you do not have access
+        to it."]}'
+    http_version: '1.1'
+  recorded_at: Tue, 10 Jul 2012 18:42:53 GMT
+recorded_with: VCR 2.1.1

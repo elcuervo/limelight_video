@@ -43,4 +43,14 @@ describe Limelight do
       assert media_info["custom_property"], "This media should have a custom property"
     end
   end
+
+  it 'should delete an uploaded video' do
+    with_a_cassette("limelight delete io") do
+      video = @limelight.upload(sample_mp4_file, title: 'test')
+
+      @limelight.delete_media(video["media_id"])
+      media_info = @limelight.media_info(video["media_id"])
+      assert media_info["errors"], "Unrecognized resource"
+    end
+  end
 end
