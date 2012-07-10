@@ -90,6 +90,12 @@ class Limelight
     end
   end
 
+  def delete_media(media_id)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/<media id>
+    path = generate_encoded_path('delete', "#{@base_url}/#{media_id}")
+    @client.delete(path)
+  end
+
   private
 
   def generate_encoded_path(method = 'get', path = @base_url)
