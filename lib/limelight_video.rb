@@ -18,7 +18,7 @@ class Limelight
     @base_media_url = "#{@base_url}/media"
     @base_channels_url = "#{@base_url}/channels"
     @client = Faraday.new(@host) do |builder|
-      builder.request :multipart
+      builder.request :url_encoded
       builder.adapter :net_http
     end
   end
@@ -131,7 +131,7 @@ class Limelight
     raise KeyError.new("access_key") if !@access_key
   end
 
-  def payload(params, method = 'get', path = @base_media_url)
+  def payload(params, method = 'get', path = @base_url)
     [
       method.downcase, URI.parse(@host).host, path,
       params.sort.map{ |arr| arr.join('=') }.join('&')
