@@ -14,7 +14,9 @@ class Limelight
     @secret = options.fetch(:secret, ENV['LIMELIGHT_SECRET'])
 
     @host = 'http://api.videoplatform.limelight.com'
-    @base_url = "/rest/organizations/#{@organization}/media"
+    @base_url = "/rest/organizations/#{@organization}"
+    @base_media_url = "#{@base_url}/media"
+    @base_channels_url = "#{@base_url}/channels"
     @client = Faraday.new(@host) do |builder|
       builder.request :multipart
       builder.adapter :net_http
@@ -22,7 +24,7 @@ class Limelight
   end
 
   def media_info(media_id)
-    response = @client.get("#{@base_url}/#{media_id}/properties.json")
+    response = @client.get("#{@base_media_url}/#{media_id}/properties.json")
     JSON.parse response.body
   end
 
@@ -64,20 +66,35 @@ class Limelight
   end
 
   def upload_path
-    generate_encoded_path('post', @base_url)
+    generate_encoded_path('post', @base_media_url)
+  end
+
+  def create_channel(name)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels.{XML,JSON}
+    path = generate_encoded_path('post', @base_channels_url)
+    response = @client.post(path, title: name)
+
+    JSON.parse response.body
+  end
+
+  def publish_channel(id)
+    path = generate_encoded_path('put', "#{@base_channels_url}/#{id}/properties")
+    response = @client.put(path, state: "Published")
+
+    JSON.parse response.body
   end
 
   def create_metadata(names)
     # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/properties/custom/<property name>
     Array(names).each do |name|
-      path = generate_encoded_path('put', "#{@base_url}/properties/custom/#{name}")
+      path = generate_encoded_path('put', "#{@base_media_url}/properties/custom/#{name}")
       @client.put(path)
     end
   end
 
   def list_metadata
     # http://api.videoplatform.limelight.com/rest/organizations/<orgid>/media/properties/custom.{XML,JSON}
-    response = @client.get("#{@base_url}/properties/custom.json")
+    response = @client.get("#{@base_media_url}/properties/custom.json")
     metadata = JSON.parse response.body
     metadata["custom_property_types"].map { |meta| meta["type_name"] }
   end
@@ -85,20 +102,20 @@ class Limelight
   def remove_metadata(names)
     # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/properties/custom/<property name>
     Array(names).each do |name|
-      path = generate_encoded_path('delete', "#{@base_url}/properties/custom/#{name}")
+      path = generate_encoded_path('delete', "#{@base_media_url}/properties/custom/#{name}")
       @client.delete(path)
     end
   end
 
   def delete_media(media_id)
     # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/<media id>
-    path = generate_encoded_path('delete', "#{@base_url}/#{media_id}")
+    path = generate_encoded_path('delete', "#{@base_media_url}/#{media_id}")
     @client.delete(path)
   end
 
   private
 
-  def generate_encoded_path(method = 'get', path = @base_url)
+  def generate_encoded_path(method = 'get', path = @base_media_url)
     authorized_action
 
     params = { access_key: @access_key, expires: Time.now.to_i + 300 }
@@ -114,7 +131,7 @@ class Limelight
     raise KeyError.new("access_key") if !@access_key
   end
 
-  def payload(params, method = 'get', path = @base_url)
+  def payload(params, method = 'get', path = @base_media_url)
     [
       method.downcase, URI.parse(@host).host, path,
       params.sort.map{ |arr| arr.join('=') }.join('&')

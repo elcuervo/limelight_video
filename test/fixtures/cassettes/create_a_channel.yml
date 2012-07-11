@@ -1,0 +1,91 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1340976150&signature=dUNBjrNO86jFOLXXTRY%2FJCrgXCFe9lOGVyjx4WmippU%3D
+    body: 
+      encoding: US-ASCII
+      string: title=test
+    headers: 
+      content-type: 
+      - application/x-www-form-urlencoded
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 201
+      message: Created
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Fri, 29 Jun 2012 13:17:32 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - no-cache
+      status: 
+      - 201 Created
+      x-runtime: 
+      - 903ms
+      content-length: 
+      - "393"
+      via: 
+      - 1.0 vps-095.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": null, \"email_enabled\": false, \"thumbnail_url\": \"\", \"description\": null, \"embed_enabled\": false, \"title\": \"test\", \"channel_id\": \"d7203f2eacdb4c27bf6e44a9814c8cc8\", \"search_inside_enabled\": false, \"rss_enabled\": false, \"create_date\": 1340975852, \"state\": \"NotPublished\", \"itunes_rss_enabled\": false, \"autoplay_enabled\": false, \"update_date\": 1340975852, \"custom_property\": null}"
+    http_version: "1.1"
+  recorded_at: Fri, 29 Jun 2012 13:17:32 GMT
+- request: 
+    method: put
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels/d7203f2eacdb4c27bf6e44a9814c8cc8/properties?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1340976152&signature=PvybEx4CJlL5D2Ho0mHypdAjec2vByjEqyUpPRZxvSs%3D
+    body: 
+      encoding: US-ASCII
+      string: state=Published
+    headers: 
+      content-type: 
+      - application/x-www-form-urlencoded
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Fri, 29 Jun 2012 13:17:34 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - private, max-age=0, must-revalidate
+      status: 
+      - 200 OK
+      x-runtime: 
+      - 1347ms
+      etag: 
+      - "\"08b7b5cfa2c13cf020f9dc1663f9f0ea\""
+      content-length: 
+      - "396"
+      via: 
+      - 1.0 vps-098.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": 1340975854, \"email_enabled\": false, \"thumbnail_url\": \"\", \"description\": null, \"embed_enabled\": false, \"title\": \"test\", \"channel_id\": \"d7203f2eacdb4c27bf6e44a9814c8cc8\", \"search_inside_enabled\": false, \"rss_enabled\": false, \"create_date\": 1340975852, \"state\": \"Published\", \"itunes_rss_enabled\": false, \"autoplay_enabled\": false, \"update_date\": 1340975854, \"custom_property\": null}"
+    http_version: "1.1"
+  recorded_at: Fri, 29 Jun 2012 13:17:35 GMT
+recorded_with: VCR 2.1.1

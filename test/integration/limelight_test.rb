@@ -53,4 +53,14 @@ describe Limelight do
       assert media_info["errors"], "Unrecognized resource"
     end
   end
+
+  it 'should create a channel' do
+    with_a_cassette('create a channel') do
+      channel = @limelight.create_channel('test')
+      assert channel["channel_id"]
+
+      channel = @limelight.publish_channel channel["channel_id"]
+      assert_equal channel["state"], "Published"
+    end
+  end
 end
