@@ -1,0 +1,144 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1342101365&signature=LibsMX11WOy%2BiTZlCc%2FBFSmX20fcRJ%2FmLxP8yYOdKZM%3D
+    body:
+      encoding: US-ASCII
+      string: title=deleted_channel
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      server:
+      - nginx/0.8.54
+      date:
+      - Thu, 12 Jul 2012 13:51:06 GMT
+      content-type:
+      - application/json; charset=utf-8
+      connection:
+      - close
+      cache-control:
+      - no-cache
+      status:
+      - 201 Created
+      x-runtime:
+      - 861ms
+      content-length:
+      - '404'
+      via:
+      - 1.0 vps-017.iad.llnw.net
+    body:
+      encoding: US-ASCII
+      string: ! '{"publish_date": null, "email_enabled": false, "thumbnail_url": "",
+        "description": null, "embed_enabled": false, "title": "deleted_channel", "channel_id":
+        "e24b0c51a5594feb96fba33088e1fd5d", "search_inside_enabled": false, "rss_enabled":
+        false, "create_date": 1342101066, "state": "NotPublished", "itunes_rss_enabled":
+        false, "autoplay_enabled": false, "update_date": 1342101066, "custom_property":
+        null}'
+    http_version: '1.1'
+  recorded_at: Thu, 12 Jul 2012 13:51:06 GMT
+- request:
+    method: put
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels/e24b0c51a5594feb96fba33088e1fd5d/properties?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1342101366&signature=p3qTfQv0A3U5%2FZ2Rnco7PAg5zlTThKUCnzlLwzcOl8Y%3D
+    body:
+      encoding: US-ASCII
+      string: state=Published
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.8.54
+      date:
+      - Thu, 12 Jul 2012 13:51:08 GMT
+      content-type:
+      - application/json; charset=utf-8
+      connection:
+      - close
+      cache-control:
+      - private, max-age=0, must-revalidate
+      status:
+      - 200 OK
+      x-runtime:
+      - 1340ms
+      etag:
+      - ! '"17002249e68fc34b2f3145e5683ff3b0"'
+      content-length:
+      - '407'
+      via:
+      - 1.0 vps-099.iad.llnw.net
+    body:
+      encoding: US-ASCII
+      string: ! '{"publish_date": 1342101068, "email_enabled": false, "thumbnail_url":
+        "", "description": null, "embed_enabled": false, "title": "deleted_channel",
+        "channel_id": "e24b0c51a5594feb96fba33088e1fd5d", "search_inside_enabled":
+        false, "rss_enabled": false, "create_date": 1342101066, "state": "Published",
+        "itunes_rss_enabled": false, "autoplay_enabled": false, "update_date": 1342101068,
+        "custom_property": null}'
+    http_version: '1.1'
+  recorded_at: Thu, 12 Jul 2012 13:51:08 GMT
+- request:
+    method: delete
+    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels/e24b0c51a5594feb96fba33088e1fd5d?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1342101368&signature=rhUqi8VJY%2FgapK5sCBKVODlhPjC2QaK2ZXdP6t7iH9M%3D
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.8.54
+      date:
+      - Thu, 12 Jul 2012 13:51:09 GMT
+      content-type:
+      - application/json; charset=utf-8
+      connection:
+      - close
+      cache-control:
+      - private, max-age=0, must-revalidate
+      status:
+      - 200 OK
+      x-runtime:
+      - 464ms
+      etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      content-length:
+      - '2'
+      via:
+      - 1.0 vps-017.iad.llnw.net
+    body:
+      encoding: US-ASCII
+      string: ! '[]'
+    http_version: '1.1'
+  recorded_at: Thu, 12 Jul 2012 13:51:09 GMT
+recorded_with: VCR 2.1.1

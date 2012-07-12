@@ -5,9 +5,9 @@ require 'stringio'
 describe Limelight do
   before do
     @limelight = Limelight.new(
-      organization: '889457f434f14057bdcc9a1f39bd9614',
-      access_key: '5CIILY3Sw1P/qF2VHikRPXMEPdA=',
-      secret: 'Frpgy2kz/xDAnrO3IBAWDRkNJ3s='
+       organization: '889457f434f14057bdcc9a1f39bd9614',
+       access_key: '5CIILY3Sw1P/qF2VHikRPXMEPdA=',
+       secret: 'Frpgy2kz/xDAnrO3IBAWDRkNJ3s='
     )
   end
 
@@ -61,6 +61,18 @@ describe Limelight do
 
       channel = @limelight.publish_channel channel["channel_id"]
       assert_equal channel["state"], "Published"
+    end
+  end
+
+  it 'should delete a channel' do
+    with_a_cassette('delete a channel') do
+      channel = @limelight.create_channel('deleted_channel')
+      channel = @limelight.publish_channel channel["channel_id"]
+      assert channel['channel_id']
+
+
+      channel = @limelight.delete_channel(channel["channel_id"])
+      assert channel.status, 200
     end
   end
 end
