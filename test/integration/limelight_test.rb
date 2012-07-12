@@ -63,4 +63,14 @@ describe Limelight do
       assert_equal channel["state"], "Published"
     end
   end
+
+  it 'should delete a channel' do
+    with_a_cassette('delete a channel') do
+      channel = @limelight.create_channel('deleted_channel')
+      assert channel['channel_id']
+
+      channel = @limelight.delete_channel(channel["channel_id"])
+      assert channel.body["errors"]
+    end
+  end
 end

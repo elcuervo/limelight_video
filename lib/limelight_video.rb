@@ -84,6 +84,12 @@ class Limelight
     JSON.parse response.body
   end
 
+  def delete_channel(channel_id)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>
+    path = generate_encoded_path('delete', "#{@base_media_url}/#{channel_id}")
+    @client.delete(path)
+  end
+
   def create_metadata(names)
     # http://api.videoplatform.limelight.com/rest/organizations/<org id>/media/properties/custom/<property name>
     Array(names).each do |name|
