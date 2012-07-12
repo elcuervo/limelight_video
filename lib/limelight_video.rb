@@ -86,7 +86,7 @@ class Limelight
 
   def delete_channel(channel_id)
     # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>
-    path = generate_encoded_path('delete', "#{@base_media_url}/#{channel_id}")
+    path = generate_encoded_path('delete', "#{@base_channels_url}/#{channel_id}")
     @client.delete(path)
   end
 
