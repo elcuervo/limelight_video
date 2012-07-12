@@ -75,4 +75,16 @@ describe Limelight do
       assert channel.status, 200
     end
   end
+
+  it "should update a channel's name" do
+    with_a_cassette('update a channel name') do
+      channel = @limelight.create_channel('GLaDOS Channel')
+      assert channel['title'], 'GLaDOS Channel'
+
+      properties = {title: 'Aperture Science Channel'}
+
+      channel = @limelight.update_channel(channel['channel_id'], properties)
+      assert channel['title'], 'Aperture Science Channel'
+    end
+  end
 end

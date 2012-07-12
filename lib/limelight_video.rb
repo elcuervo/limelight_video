@@ -84,6 +84,15 @@ class Limelight
     JSON.parse response.body
   end
 
+  def update_channel(id, properties)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>/properties.{XML,JSON}
+    # see http://www.limelightvideoplatform.com/support/docs/#2.2 for properties
+    path = generate_encoded_path('put', "#{@base_channels_url}/#{id}/properties")
+    response = @client.put(path, properties)
+
+    JSON.parse response.body
+  end
+
   def delete_channel(channel_id)
     # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>
     path = generate_encoded_path('delete', "#{@base_channels_url}/#{channel_id}")
