@@ -1,48 +1,55 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: post
-    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1337863294&signature=YkR%2BoskXW3HPpBBb9A9vft9wY5aA7QZ%2F1LnlGqklZFs%3D
-    body: 
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/media?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1342477104&signature=TO%2B1wozWjwHC%2FXZupazSq3JqVAw8mjlDQ4jG5Rsi3%2BY%3D
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      content-type: 
+      string: ''
+    headers:
+      content-type:
       - multipart/form-data;boundary=-----------RubyMultipartPost
-      content-length: 
-      - "246148"
-      accept: 
-      - "*/*"
-      user-agent: 
+      content-length:
+      - '246148'
+      accept:
+      - ! '*/*'
+      user-agent:
       - Ruby
-      connection: 
+      connection:
       - close
-  response: 
-    status: 
+  response:
+    status:
       code: 201
       message: Created
-    headers: 
-      server: 
+    headers:
+      server:
       - nginx/0.8.54
-      date: 
-      - Thu, 24 May 2012 12:36:43 GMT
-      content-type: 
+      date:
+      - Mon, 16 Jul 2012 22:13:36 GMT
+      content-type:
       - application/json; charset=utf-8
-      connection: 
+      connection:
       - close
-      cache-control: 
+      cache-control:
       - no-cache
-      status: 
+      status:
       - 201 Created
-      x-runtime: 
-      - 1577ms
-      content-length: 
-      - "747"
-      via: 
-      - 1.0 vps-099.iad.llnw.net
-    body: 
+      x-runtime:
+      - 1557ms
+      content-length:
+      - '747'
+      via:
+      - 1.0 vps-017.iad.llnw.net
+    body:
       encoding: US-ASCII
-      string: "{\"publish_date\": null, \"category\": null, \"description\": null, \"sched_end_date\": null, \"tags\": [], \"title\": \"test\", \"media_id\": \"5b9db4b56210492eb0a4bae1b5f9e3ec\", \"media_type\": \"Video\", \"original_filename\": \"sample-mp4\", \"sched_start_date\": null, \"restrictionrule_id\": null, \"create_date\": 1337863002, \"state\": \"New\", \"total_storage_in_bytes\": 0, \"thumbnails\": [{\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}, {\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}], \"ref_id\": null, \"update_date\": 1337863003, \"custom_property\": null, \"duration_in_milliseconds\": 0}"
-    http_version: "1.1"
-  recorded_at: Thu, 24 May 2012 12:36:43 GMT
+      string: ! '{"publish_date": null, "category": null, "description": null, "sched_end_date":
+        null, "tags": [], "title": "test", "media_id": "0aa63dc10c784f95880990d010d888f4",
+        "media_type": "Video", "original_filename": "sample-mp4", "sched_start_date":
+        null, "restrictionrule_id": null, "create_date": 1342476815, "state": "New",
+        "total_storage_in_bytes": 0, "thumbnails": [{"url": "http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf",
+        "width": "", "height": ""}, {"url": "http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf",
+        "width": "", "height": ""}], "ref_id": null, "update_date": 1342476816, "custom_property":
+        null, "duration_in_milliseconds": 0}'
+    http_version: '1.1'
+  recorded_at: Mon, 16 Jul 2012 22:13:36 GMT
 recorded_with: VCR 2.1.1

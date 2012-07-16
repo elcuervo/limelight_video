@@ -5,9 +5,9 @@ require 'stringio'
 describe Limelight do
   before do
     @limelight = Limelight.new(
-       organization: '889457f434f14057bdcc9a1f39bd9614',
-       access_key: '5CIILY3Sw1P/qF2VHikRPXMEPdA=',
-       secret: 'Frpgy2kz/xDAnrO3IBAWDRkNJ3s='
+       organization: 'dde8e72013ba44768e764e1bff217a5a',
+       access_key: 'DaYkT4MO0DwIdTk1Af9XmHFHFGM=',
+       secret: '4/y6UgzsDsJSqqrIh2I3EFEOTYA='
     )
   end
 
@@ -21,7 +21,8 @@ describe Limelight do
   it 'should upload an io stream' do
     with_a_cassette("limelight upload io") do
       io = StringIO.new << File.read(sample_mp4_file)
-      video = @limelight.upload(io, title: 'test', filename: sample_mp4_file)
+      io.rewind
+      video = @limelight.upload(io, title: 'test', filename: 'test.mp4')
       video["media_id"].size.must_equal 32
     end
   end
@@ -51,6 +52,14 @@ describe Limelight do
       @limelight.delete_media(video["media_id"])
       media_info = @limelight.media_info(video["media_id"])
       assert media_info["errors"], "Unrecognized resource"
+    end
+  end
+
+  it 'should update an uploaded video' do
+    with_a_cassette('update video information') do
+      video = @limelight.upload(sample_mp4_file, title: 'test')
+      media_info = @limelight.media_info(video["media_id"])
+      assert_equal media_info["description"], nil
     end
   end
 

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1342125287&signature=beg7N5dfAa1JGkv8DriAl6VDj%2B7iI1vqvTHpPTlGRbw%3D
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/channels?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1342476981&signature=Lfc%2FpjSA6KUeA2napd8uGeaDP%2B8ypvrEO8H%2BJa0Mk%2FA%3D
     body:
       encoding: US-ASCII
       string: title=GLaDOS+Channel
@@ -23,7 +23,7 @@ http_interactions:
       server:
       - nginx/0.8.54
       date:
-      - Thu, 12 Jul 2012 20:28:55 GMT
+      - Mon, 16 Jul 2012 22:11:23 GMT
       content-type:
       - application/json; charset=utf-8
       connection:
@@ -33,7 +33,7 @@ http_interactions:
       status:
       - 201 Created
       x-runtime:
-      - 884ms
+      - 872ms
       content-length:
       - '403'
       via:
@@ -42,15 +42,15 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"publish_date": null, "email_enabled": false, "thumbnail_url": "",
         "description": null, "embed_enabled": false, "title": "GLaDOS Channel", "channel_id":
-        "3143c9e3c87342f6aac3217ff407ce1b", "search_inside_enabled": false, "rss_enabled":
-        false, "create_date": 1342124934, "state": "NotPublished", "itunes_rss_enabled":
-        false, "autoplay_enabled": false, "update_date": 1342124934, "custom_property":
+        "7dfe69dd5e4d42119c78a92fbd7304d7", "search_inside_enabled": false, "rss_enabled":
+        false, "create_date": 1342476683, "state": "NotPublished", "itunes_rss_enabled":
+        false, "autoplay_enabled": false, "update_date": 1342476683, "custom_property":
         null}'
     http_version: '1.1'
-  recorded_at: Thu, 12 Jul 2012 20:29:50 GMT
+  recorded_at: Mon, 16 Jul 2012 22:11:23 GMT
 - request:
     method: put
-    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/channels/3143c9e3c87342f6aac3217ff407ce1b/properties?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1342125290&signature=K%2B7jFsGuDa1TQzUrQyDtsXypfTfLx%2B2f7imZmToXJYo%3D
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/channels/7dfe69dd5e4d42119c78a92fbd7304d7/properties?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1342476983&signature=huwBP%2Bbol3GNpa4FHmb%2FnLGNa47KsZ7KjWGivtblk3Y%3D
     body:
       encoding: US-ASCII
       string: title=Aperture+Science+Channel
@@ -71,7 +71,7 @@ http_interactions:
       server:
       - nginx/0.8.54
       date:
-      - Thu, 12 Jul 2012 20:28:58 GMT
+      - Mon, 16 Jul 2012 22:11:25 GMT
       content-type:
       - application/json; charset=utf-8
       connection:
@@ -81,21 +81,21 @@ http_interactions:
       status:
       - 200 OK
       x-runtime:
-      - 1102ms
+      - 1125ms
       etag:
-      - ! '"ce27f7c6aa744d4c8da3b2a3bf3ecf7c"'
+      - ! '"3486d3cb8a8789aa4fad2a6a158fd503"'
       content-length:
       - '413'
       via:
-      - 1.0 vps-018.iad.llnw.net
+      - 1.0 vps-017.iad.llnw.net
     body:
       encoding: US-ASCII
       string: ! '{"publish_date": null, "email_enabled": false, "thumbnail_url": "",
         "description": null, "embed_enabled": false, "title": "Aperture Science Channel",
-        "channel_id": "3143c9e3c87342f6aac3217ff407ce1b", "search_inside_enabled":
-        false, "rss_enabled": false, "create_date": 1342124934, "state": "NotPublished",
-        "itunes_rss_enabled": false, "autoplay_enabled": false, "update_date": 1342124938,
+        "channel_id": "7dfe69dd5e4d42119c78a92fbd7304d7", "search_inside_enabled":
+        false, "rss_enabled": false, "create_date": 1342476683, "state": "NotPublished",
+        "itunes_rss_enabled": false, "autoplay_enabled": false, "update_date": 1342476685,
         "custom_property": null}'
     http_version: '1.1'
-  recorded_at: Thu, 12 Jul 2012 20:29:54 GMT
+  recorded_at: Mon, 16 Jul 2012 22:11:25 GMT
 recorded_with: VCR 2.1.1

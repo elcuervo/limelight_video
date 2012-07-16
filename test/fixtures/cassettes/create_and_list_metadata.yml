@@ -1,134 +1,135 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: put
-    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/properties/custom/test?access_key=5CIILY3Sw1P%2FqF2VHikRPXMEPdA%3D&expires=1340937602&signature=of8f8C1BctNLdy0oF%2FXUjW2f0y9Co6%2BGxFQq1TIkNw4%3D
-    body: 
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/media/properties/custom/test?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1342477073&signature=SiZdRwPKyZ0kotaHttzOH37AGSqvWucOEq7hiWyf6so%3D
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      content-length: 
-      - "0"
-      accept: 
-      - "*/*"
-      user-agent: 
+      string: ''
+    headers:
+      content-length:
+      - '0'
+      accept:
+      - ! '*/*'
+      user-agent:
       - Ruby
-      connection: 
+      connection:
       - close
-  response: 
-    status: 
+  response:
+    status:
       code: 400
       message: Bad Request
-    headers: 
-      server: 
+    headers:
+      server:
       - nginx/0.8.54
-      date: 
-      - Fri, 29 Jun 2012 02:35:05 GMT
-      content-type: 
+      date:
+      - Mon, 16 Jul 2012 22:12:55 GMT
+      content-type:
       - application/json; charset=utf-8
-      connection: 
+      connection:
       - close
-      cache-control: 
+      cache-control:
       - no-cache
-      status: 
+      status:
       - 400 Bad Request
-      content-length: 
-      - "118"
-      via: 
-      - 1.0 vps-095.iad.llnw.net
-    body: 
+      content-length:
+      - '118'
+      via:
+      - 1.0 vps-017.iad.llnw.net
+    body:
       encoding: US-ASCII
-      string: "{\"errors\": [\"The property you are trying to set to the given name already exists.  Please specify a different name.\"]}"
-    http_version: "1.1"
-  recorded_at: Fri, 29 Jun 2012 02:35:05 GMT
-- request: 
+      string: ! '{"errors": ["The property you are trying to set to the given name
+        already exists.  Please specify a different name."]}'
+    http_version: '1.1'
+  recorded_at: Mon, 16 Jul 2012 22:12:55 GMT
+- request:
     method: get
-    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/properties/custom.json
-    body: 
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/media/properties/custom.json
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      accept-encoding: 
+      string: ''
+    headers:
+      accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      accept: 
-      - "*/*"
-      user-agent: 
+      accept:
+      - ! '*/*'
+      user-agent:
       - Ruby
-      connection: 
+      connection:
       - close
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      server: 
+    headers:
+      server:
       - nginx/0.8.54
-      date: 
-      - Fri, 29 Jun 2012 02:35:06 GMT
-      content-type: 
+      date:
+      - Mon, 16 Jul 2012 22:12:57 GMT
+      content-type:
       - application/json; charset=utf-8
-      connection: 
+      connection:
       - close
-      cache-control: 
+      cache-control:
       - max-age=300, max-stale=18000, public
-      status: 
+      status:
       - 200 OK
-      x-runtime: 
-      - 721ms
-      etag: 
-      - "\"1a607f813179a110bf2906752175d144\""
-      content-length: 
-      - "50"
-      via: 
+      x-runtime:
+      - 683ms
+      etag:
+      - ! '"85294995f52af4df68503ed27ec74b98"'
+      content-length:
+      - '80'
+      via:
       - 1.0 vps-099.iad.llnw.net
-    body: 
+    body:
       encoding: US-ASCII
-      string: "{\"custom_property_types\": [{\"type_name\": \"test\"}]}"
-    http_version: "1.1"
-  recorded_at: Fri, 29 Jun 2012 02:35:06 GMT
-- request: 
+      string: ! '{"custom_property_types": [{"type_name": "test"}, {"type_name": "internal_id"}]}'
+    http_version: '1.1'
+  recorded_at: Mon, 16 Jul 2012 22:12:57 GMT
+- request:
     method: get
-    uri: http://api.videoplatform.limelight.com/rest/organizations/889457f434f14057bdcc9a1f39bd9614/media/properties/custom.json
-    body: 
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/media/properties/custom.json
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      accept-encoding: 
+      string: ''
+    headers:
+      accept-encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      accept: 
-      - "*/*"
-      user-agent: 
+      accept:
+      - ! '*/*'
+      user-agent:
       - Ruby
-      connection: 
+      connection:
       - close
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      server: 
+    headers:
+      server:
       - nginx/0.8.54
-      date: 
-      - Fri, 29 Jun 2012 02:35:08 GMT
-      content-type: 
+      date:
+      - Mon, 16 Jul 2012 22:12:58 GMT
+      content-type:
       - application/json; charset=utf-8
-      connection: 
+      connection:
       - close
-      cache-control: 
+      cache-control:
       - max-age=300, max-stale=18000, public
-      status: 
+      status:
       - 200 OK
-      x-runtime: 
-      - 700ms
-      etag: 
-      - "\"1a607f813179a110bf2906752175d144\""
-      content-length: 
-      - "50"
-      via: 
-      - 1.0 vps-095.iad.llnw.net
-    body: 
+      x-runtime:
+      - 694ms
+      etag:
+      - ! '"85294995f52af4df68503ed27ec74b98"'
+      content-length:
+      - '80'
+      via:
+      - 1.0 vps-018.iad.llnw.net
+    body:
       encoding: US-ASCII
-      string: "{\"custom_property_types\": [{\"type_name\": \"test\"}]}"
-    http_version: "1.1"
-  recorded_at: Fri, 29 Jun 2012 02:35:08 GMT
+      string: ! '{"custom_property_types": [{"type_name": "test"}, {"type_name": "internal_id"}]}'
+    http_version: '1.1'
+  recorded_at: Mon, 16 Jul 2012 22:12:58 GMT
 recorded_with: VCR 2.1.1

@@ -18,6 +18,7 @@ class Limelight
     @base_media_url = "#{@base_url}/media"
     @base_channels_url = "#{@base_url}/channels"
     @client = Faraday.new(@host) do |builder|
+      builder.request :multipart
       builder.request :url_encoded
       builder.adapter :net_http
     end
@@ -25,6 +26,13 @@ class Limelight
 
   def media_info(media_id)
     response = @client.get("#{@base_media_url}/#{media_id}/properties.json")
+    JSON.parse response.body
+  end
+
+  def update_media(id, attributes)
+    path = generate_encoded_path('put', "#{@base_media_url}/#{id}/properties")
+    response = @client.put(path, attributes)
+
     JSON.parse response.body
   end
 
@@ -78,10 +86,7 @@ class Limelight
   end
 
   def publish_channel(id)
-    path = generate_encoded_path('put', "#{@base_channels_url}/#{id}/properties")
-    response = @client.put(path, state: "Published")
-
-    JSON.parse response.body
+    update_channel id, state: "Published"
   end
 
   def update_channel(id, properties)
