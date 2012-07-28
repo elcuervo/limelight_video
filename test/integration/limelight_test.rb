@@ -96,4 +96,11 @@ describe Limelight do
       assert channel['title'], 'Aperture Science Channel'
     end
   end
+
+  it "should get media statistics" do
+    with_a_cassette('media statistics load') do
+      video = @limelight.upload(sample_mp4_file, title: 'test')
+      statistics = @limelight.analytics_for_media(video["media_id"])
+    end
+  end
 end

@@ -14,10 +14,21 @@ class Limelight
     @secret = options.fetch(:secret, ENV['LIMELIGHT_SECRET'])
 
     @host = 'http://api.videoplatform.limelight.com'
+    @analytics_host = 'http://api.delvenetworks.com/rest/'
+
     @base_url = "/rest/organizations/#{@organization}"
+
     @base_media_url = "#{@base_url}/media"
     @base_channels_url = "#{@base_url}/channels"
+    @base_analytics_url = "#{@base_url}/analytics"
+
     @client = Faraday.new(@host) do |builder|
+      builder.request :multipart
+      builder.request :url_encoded
+      builder.adapter :net_http
+    end
+
+    @analytics_client = Faraday.new(@analytics_host) do |builder|
       builder.request :multipart
       builder.request :url_encoded
       builder.adapter :net_http
@@ -33,6 +44,15 @@ class Limelight
     path = generate_encoded_path('put', "#{@base_media_url}/#{id}/properties")
     response = @client.put(path, attributes)
 
+    JSON.parse response.body
+  end
+
+  def analytics_for_media(*id)
+    # http://api.delvenetworks.com/rest/organizations/<org id>/analytics/report/media.{xml,json,csv}
+    path = generate_encoded_path('get', "#{@base_analytics_url}/report/media.json", {
+      media_id: id.join(',')
+    }, @analytics_host)
+    response = @analytics_client.get(path)
     JSON.parse response.body
   end
 
@@ -135,15 +155,15 @@ class Limelight
 
   private
 
-  def generate_encoded_path(method = 'get', path = @base_media_url)
+  def generate_encoded_path(method = 'get', path = @base_media_url, params = {}, host = @host)
     authorized_action
 
-    params = { access_key: @access_key, expires: Time.now.to_i + 300 }
-    signed = payload(params, method, path)
+    params.merge!(access_key: @access_key, expires: Time.now.to_i + 300)
+    signed = payload(params, method, path, host)
     signature = Base64.encode64(OpenSSL::HMAC.digest('sha256', @secret, signed))
     params[:signature] = signature.chomp
 
-    "#{path}?#{Faraday::Utils.build_query(params)}"
+    "#{path}?#{Faraday::Utils.build_query(Hash[params.sort])}"
   end
 
   def authorized_action
@@ -151,9 +171,9 @@ class Limelight
     raise KeyError.new("access_key") if !@access_key
   end
 
-  def payload(params, method = 'get', path = @base_url)
+  def payload(params, method = 'get', path = @base_url, host = @host)
     [
-      method.downcase, URI.parse(@host).host, path,
+      method.downcase, URI.parse(host).host, path,
       params.sort.map{ |arr| arr.join('=') }.join('&')
     ].join('|')
   end
