@@ -153,6 +153,24 @@ class Limelight
     @client.delete(path)
   end
 
+  def add_media_to_a_channel(media_id, channel_id)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>/media/<media id>
+    path = generate_encoded_path('put', "#{@base_channels_url}/#{channel_id}/media/#{media_id}")
+    response = @client.put(path)
+  end
+
+  def delete_media_from_channel(media_id, channel_id)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>/media/<media id>
+    path = generate_encoded_path('delete', "#{@base_channels_url}/#{channel_id}/media/#{media_id}")
+    @client.delete(path)
+  end
+
+  def list_channel_media(channel_id)
+    # http://api.videoplatform.limelight.com/rest/organizations/<org id>/channels/<channel id>/media.{XML,JSON}
+    response = @client.get("#{@base_channels_url}/#{channel_id}/media.json")
+    JSON.parse response.body
+  end
+
   private
 
   def generate_encoded_path(method = 'get', path = @base_media_url, params = {}, host = @host)
