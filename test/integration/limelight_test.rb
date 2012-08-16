@@ -1,6 +1,7 @@
 require 'test_helper'
 require 'test_fixtures'
 require 'stringio'
+require 'json'
 
 describe Limelight do
   before do
@@ -101,6 +102,24 @@ describe Limelight do
     with_a_cassette('media statistics load') do
       video = @limelight.upload(sample_mp4_file, title: 'test')
       statistics = @limelight.analytics_for_media(video["media_id"])
+    end
+  end
+
+  it "should add a video to a channel" do
+    with_a_cassette('add video to channel') do
+      video = @limelight.upload(sample_mp4_file, title: 'test')
+      video["media_id"].size.must_equal 32
+
+      channel = @limelight.create_channel('new_channel')
+      channel = @limelight.publish_channel channel["channel_id"]
+      assert channel['channel_id']
+
+      @limelight.add_media_to_a_channel(video['media_id'], channel['channel_id'])
+      channel_media = @limelight.list_channel_media(channel['channel_id'])
+
+      # assert channel_media["media_list"][0]['media_id'], video["media_id"]
+      # There's an issue here, that we can't check for a media's presence in a
+      # channel until it's been processed on the Limelight Platform
     end
   end
 end
