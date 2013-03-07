@@ -1,0 +1,222 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/media?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1362669769&signature=hPA4pDDlR2vDrhAgII13S4HxXNok1VkipBxfFwzaq4E%3D
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      user-agent: 
+      - Faraday v0.8.6
+      content-type: 
+      - multipart/form-data;boundary=-----------RubyMultipartPost
+      content-length: 
+      - "246148"
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 201
+      message: Created
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 07 Mar 2013 15:18:34 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - no-cache
+      status: 
+      - 201 Created
+      x-runtime: 
+      - 2209ms
+      content-length: 
+      - "747"
+      via: 
+      - 1.0 vps-184.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": null, \"category\": null, \"description\": null, \"sched_end_date\": null, \"tags\": [], \"title\": \"test\", \"media_id\": \"7a504e2a240f49e084825482902ae91f\", \"media_type\": \"Video\", \"original_filename\": \"sample-mp4\", \"sched_start_date\": null, \"restrictionrule_id\": null, \"create_date\": 1362669513, \"state\": \"New\", \"total_storage_in_bytes\": 0, \"thumbnails\": [{\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}, {\"url\": \"http://img.delvenetworks.com/0000000000000000000000/0000000000000000000000/defaultVideoPreviewImage.swf\", \"width\": \"\", \"height\": \"\"}], \"ref_id\": null, \"update_date\": 1362669513, \"custom_property\": null, \"duration_in_milliseconds\": 0}"
+    http_version: "1.1"
+  recorded_at: Thu, 07 Mar 2013 15:17:52 GMT
+- request: 
+    method: post
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/channels?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1362669772&signature=JavS05hYgjfHvKfR9QNixNCN2Y84OL7RyPAy%2Fr6UTsY%3D
+    body: 
+      encoding: US-ASCII
+      string: title=new_channel
+    headers: 
+      user-agent: 
+      - Faraday v0.8.6
+      content-type: 
+      - application/x-www-form-urlencoded
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 201
+      message: Created
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 07 Mar 2013 15:18:35 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - no-cache
+      status: 
+      - 201 Created
+      x-runtime: 
+      - 630ms
+      content-length: 
+      - "400"
+      via: 
+      - 1.0 vps-162.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": null, \"email_enabled\": false, \"thumbnail_url\": \"\", \"description\": null, \"embed_enabled\": false, \"title\": \"new_channel\", \"channel_id\": \"a1803fd4dca34954860a9233fc966cd4\", \"search_inside_enabled\": false, \"rss_enabled\": false, \"create_date\": 1362669514, \"state\": \"NotPublished\", \"itunes_rss_enabled\": false, \"autoplay_enabled\": false, \"update_date\": 1362669514, \"custom_property\": null}"
+    http_version: "1.1"
+  recorded_at: Thu, 07 Mar 2013 15:17:53 GMT
+- request: 
+    method: put
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/channels/a1803fd4dca34954860a9233fc966cd4/properties?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1362669773&signature=skUVXNArPw59pP%2F%2BblWxuLMsY6mCfsuqELC8aMOcGAE%3D
+    body: 
+      encoding: US-ASCII
+      string: state=Published
+    headers: 
+      user-agent: 
+      - Faraday v0.8.6
+      content-type: 
+      - application/x-www-form-urlencoded
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 07 Mar 2013 15:18:36 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - private, max-age=0, must-revalidate
+      status: 
+      - 200 OK
+      x-runtime: 
+      - 855ms
+      etag: 
+      - "\"c9728a5b6d812daa08d59ebc49e247f1\""
+      content-length: 
+      - "403"
+      via: 
+      - 1.0 vps-155.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "{\"publish_date\": 1362669515, \"email_enabled\": false, \"thumbnail_url\": \"\", \"description\": null, \"embed_enabled\": false, \"title\": \"new_channel\", \"channel_id\": \"a1803fd4dca34954860a9233fc966cd4\", \"search_inside_enabled\": false, \"rss_enabled\": false, \"create_date\": 1362669514, \"state\": \"Published\", \"itunes_rss_enabled\": false, \"autoplay_enabled\": false, \"update_date\": 1362669515, \"custom_property\": null}"
+    http_version: "1.1"
+  recorded_at: Thu, 07 Mar 2013 15:17:54 GMT
+- request: 
+    method: put
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/channels/a1803fd4dca34954860a9233fc966cd4/media/7a504e2a240f49e084825482902ae91f?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&expires=1362669774&signature=ijS3h4WGct7rGZpwMVcEXCjH2UUoA3%2FdJaWOtYYgfJk%3D
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      user-agent: 
+      - Faraday v0.8.6
+      content-length: 
+      - "0"
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 07 Mar 2013 15:18:36 GMT
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - close
+      cache-control: 
+      - private, max-age=0, must-revalidate
+      status: 
+      - 200 OK
+      x-runtime: 
+      - 455ms
+      etag: 
+      - "\"d751713988987e9331980363e24189ce\""
+      content-length: 
+      - "2"
+      via: 
+      - 1.0 vps-099.iad.llnw.net
+    body: 
+      encoding: US-ASCII
+      string: "[]"
+    http_version: "1.1"
+  recorded_at: Thu, 07 Mar 2013 15:17:54 GMT
+- request: 
+    method: get
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/channels/a1803fd4dca34954860a9233fc966cd4/media.json
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      user-agent: 
+      - Faraday v0.8.6
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 07 Mar 2013 15:18:36 GMT
+      content-type: 
+      - application/json;charset=UTF-8
+      connection: 
+      - close
+      access-control-allow-origin: 
+      - "*"
+      cache-control: 
+      - max-age=300,max-stale=18000, public
+      etag: 
+      - "\"31f56176f69742cebd7ed48e5b62c9b5\""
+      content-length: 
+      - "70"
+    body: 
+      encoding: US-ASCII
+      string: "{\"has_next\":false,\"data_as_of\":1362669516,\"page_id\":0,\"media_list\":[]}"
+    http_version: "1.1"
+  recorded_at: Thu, 07 Mar 2013 15:17:54 GMT
+recorded_with: VCR 2.1.1

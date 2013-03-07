@@ -2,6 +2,7 @@ require 'test_helper'
 require 'test_fixtures'
 require 'stringio'
 require 'json'
+require 'date'
 
 describe Limelight do
   before do
@@ -9,7 +10,7 @@ describe Limelight do
        organization: 'dde8e72013ba44768e764e1bff217a5a',
        access_key: 'DaYkT4MO0DwIdTk1Af9XmHFHFGM=',
        secret: '4/y6UgzsDsJSqqrIh2I3EFEOTYA='
-    )
+    )    
   end
 
   it 'should upload a video' do
@@ -102,6 +103,15 @@ describe Limelight do
     with_a_cassette('media statistics load') do
       video = @limelight.upload(sample_mp4_file, title: 'test')
       statistics = @limelight.analytics_for_media(video["media_id"])
+    end
+  end
+
+  it "should get most popular media" do
+    with_a_cassette('most popular media') do
+      start_time = Date.new(2013,2,1).to_time.to_i    
+      end_time = Date.new(2013,3,1).to_time.to_i
+
+      top_media = @limelight.most_popular_media(start_time, end_time)
     end
   end
 
