@@ -56,7 +56,7 @@ class Limelight
     JSON.parse response.body
   end
 
-  def most_popular_media(start_time, end_time, options = {})
+  def most_played_media(start_time, end_time, options = {})
     params = {
       :start => start_time,
       :end => end_time

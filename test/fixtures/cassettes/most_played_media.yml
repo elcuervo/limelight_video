@@ -2,7 +2,7 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/analytics/performance/media.json?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&end=1362114000&expires=1362671821&signature=94wAbmkrb9AiihuZx9NXJuQ4UB059G4fhA%2BuV87NSX4%3D&start=1359694800
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/analytics/performance/media.json?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&end=1362114000&expires=1362672570&signature=%2FEw7q4luy4lQA6yzlQm6z5dlrKNJxFB7%2BTVTNtsSGZQ%3D&start=1359694800
     body: 
       encoding: US-ASCII
       string: ""
@@ -23,7 +23,7 @@ http_interactions:
       server: 
       - nginx/0.8.54
       date: 
-      - Thu, 07 Mar 2013 15:52:45 GMT
+      - Thu, 07 Mar 2013 16:05:15 GMT
       content-type: 
       - application/json;charset=UTF-8
       connection: 
@@ -33,12 +33,12 @@ http_interactions:
       cache-control: 
       - max-age=300,max-stale=18000, public
       etag: 
-      - "\"60e863325c6d4170a86b193ea804f5bb\""
+      - "\"603ac51de5344507a7ebbf470efe7adb\""
       content-length: 
       - "65"
     body: 
       encoding: US-ASCII
-      string: "{\"has_next\":false,\"data_as_of\":1362671564,\"page_id\":0,\"media\":[]}"
+      string: "{\"has_next\":false,\"data_as_of\":1362672314,\"page_id\":0,\"media\":[]}"
     http_version: "1.1"
-  recorded_at: Thu, 07 Mar 2013 15:52:02 GMT
+  recorded_at: Thu, 07 Mar 2013 16:04:32 GMT
 recorded_with: VCR 2.1.1

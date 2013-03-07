@@ -106,12 +106,12 @@ describe Limelight do
     end
   end
 
-  it "should get most popular media" do
-    with_a_cassette('most popular media') do
+  it "should get most played media" do
+    with_a_cassette('most played media') do
       start_time = Date.new(2013,2,1).to_time.to_i    
       end_time = Date.new(2013,3,1).to_time.to_i
 
-      top_media = @limelight.most_popular_media(start_time, end_time)
+      top_media = @limelight.most_played_media(start_time, end_time)
     end
   end
 
