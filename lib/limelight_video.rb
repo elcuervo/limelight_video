@@ -56,6 +56,20 @@ class Limelight
     JSON.parse response.body
   end
 
+  def media_engagement(start_time, end_time, options = {})
+    params = {
+      :start => start_time,
+      :end => end_time
+    }
+
+    params.merge!(options)
+
+    path = generate_encoded_path('get', "#{@base_analytics_url}/engagement/media.json", params, @host)
+
+    response = @client.get(path)
+    JSON.parse response.body
+  end
+
   def most_played_media(start_time, end_time, options = {})
     params = {
       :start => start_time,

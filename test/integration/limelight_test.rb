@@ -115,6 +115,16 @@ describe Limelight do
     end
   end
 
+  it "should get media engagement data" do
+    with_a_cassette('media engagement data') do
+      start_time = Date.new(2013,2,1).to_time.to_i    
+      end_time = Date.new(2013,3,1).to_time.to_i
+
+      engagement = @limelight.media_engagement(start_time, end_time)
+    end
+  end
+
+
   it "should add a video to a channel" do
     with_a_cassette('add video to channel') do
       video = @limelight.upload(sample_mp4_file, title: 'test')
