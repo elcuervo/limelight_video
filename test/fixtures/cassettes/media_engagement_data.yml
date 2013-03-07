@@ -1,0 +1,44 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.videoplatform.limelight.com/rest/organizations/dde8e72013ba44768e764e1bff217a5a/analytics/engagement/media.json?access_key=DaYkT4MO0DwIdTk1Af9XmHFHFGM%3D&end=1362114000&expires=1362682718&signature=XSgE%2BA0s3vLAGTHvvWlIfqAGAkcIQL2lqJ%2B2MVZNJ40%3D&start=1359694800
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      user-agent: 
+      - Faraday v0.8.6
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Thu, 07 Mar 2013 18:54:27 GMT
+      content-type: 
+      - application/json;charset=UTF-8
+      connection: 
+      - close
+      access-control-allow-origin: 
+      - "*"
+      cache-control: 
+      - max-age=300,max-stale=18000, public
+      etag: 
+      - "\"e8caff2e5a644fcba5089bb91b298c67\""
+      content-length: 
+      - "67"
+    body: 
+      encoding: US-ASCII
+      string: "{\"has_next\":false,\"data_as_of\":1362682466,\"page_id\":0,\"records\":[]}"
+    http_version: "1.1"
+  recorded_at: Thu, 07 Mar 2013 18:53:40 GMT
+recorded_with: VCR 2.1.1
