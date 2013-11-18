@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name              = "limelight_video"
   s.version           = "0.0.4"
   s.summary           = "Limelight video client"
-  s.description       = "Interact with the Limelight CDN platform"
+  s.description       = "Interact with Limelight Orchestrate Video"
   s.authors           = ["elcuervo"]
   s.email             = ["yo@brunoaguirre.com"]
   s.homepage          = "http://github.com/elcuervo/limelight_video"
